@@ -14,7 +14,7 @@ export default function FeedbackPanel() {
   async function fetchFeedbacks() {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/feedbacks");
+      const res = await fetch("https://chessclubserverside.onrender.com/api/feedbacks");
       if (!res.ok) throw new Error("Gagal mengambil data feedback");
       const data = await res.json();
       setList(data);
@@ -30,7 +30,7 @@ export default function FeedbackPanel() {
     if (!text.trim()) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/feedbacks", {
+      const res = await fetch("https://chessclubserverside.onrender.com/api/feedbacks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ msg: text.trim() }),
@@ -112,3 +112,4 @@ export default function FeedbackPanel() {
     </div>
   );
 }
+
