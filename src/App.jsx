@@ -13,7 +13,7 @@ export default function App(){
   return (
     <div className="app">
       <Navbar />
-      <main style={{paddingBottom:24, paddingTop: 60}}>
+      <main style={{paddingBottom:24, paddingTop: 60, paddingBottom: 60}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/album" element={<Album />} />
