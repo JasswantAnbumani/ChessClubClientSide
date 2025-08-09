@@ -56,7 +56,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-wrap: wrap;
   z-index: 9999;
 }
@@ -147,6 +147,12 @@ body {
   .nav-links {
     display: flex; /* pastikan tetap flex */
   }
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .container {
