@@ -81,6 +81,8 @@ body {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6),
     inset 0 -6px 12px rgba(255, 255, 255, 0.04);
 }
+
+/* Nav links default style */
 .nav-links {
   display: flex;
   gap: 14px;
@@ -104,6 +106,47 @@ body {
   background: var(--glass);
   border: 1px solid var(--glass-border);
   transition: ease 0.3s;
+}
+
+/* Burger container, hidden default */
+.burger {
+  display: none;
+  z-index: 10000; /* di atas nav-links */
+}
+
+/* Responsive: tampilkan burger dan ubah nav-links jadi dropdown */
+@media (max-width: 520px) {
+  .nav {
+    padding: 10px 14px;
+  }
+  .nav-links {
+    position: fixed;
+    top: 70px; /* tinggi navbar */
+    left: 0;
+    width: 100%;
+    background: var(--paper);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-top: 1px solid var(--glass-border);
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  .nav-links.active {
+    max-height: 300px; /* sesuaikan jika perlu */
+  }
+  .nav-links a {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .burger {
+    display: block;
+  }
+  .nav-links {
+    display: flex; /* pastikan tetap flex */
+  }
 }
 
 .container {
