@@ -14,7 +14,7 @@ export default function Daftar() {
   async function fetchRegistrants() {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/registrants");
+      const res = await fetch("https://chessclubserverside.onrender.com/api/registrants");
       const data = await res.json();
       setList(data);
       setLoading(false);
@@ -38,7 +38,7 @@ export default function Daftar() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/api/registrants", {
+      const res = await fetch("https://chessclubserverside.onrender.com/api/registrants", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -192,3 +192,4 @@ export default function Daftar() {
     </div>
   );
 }
+
