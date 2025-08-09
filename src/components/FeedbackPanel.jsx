@@ -45,13 +45,6 @@ export default function FeedbackPanel() {
     }
   }
 
-  async function clearAll() {
-    if (!window.confirm("Hapus semua feedback?")) return;
-    // NOTE: Untuk hapus semua di backend, kamu perlu buat endpoint DELETE, 
-    // tapi kalau belum ada, kita reset di frontend saja (tidak terhapus di DB)
-    setList([]);
-  }
-
   return (
     <div>
       <form className="feedback-form" onSubmit={submitFeedback}>
@@ -73,16 +66,6 @@ export default function FeedbackPanel() {
             disabled={loading}
           >
             {loading ? "Loading..." : "Kirim"}
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            type="button"
-            className="card"
-            style={{ padding: "8px 12px", color: "white" }}
-            onClick={clearAll}
-            disabled={loading}
-          >
-            Hapus Semua
           </motion.button>
         </div>
       </form>
@@ -112,4 +95,5 @@ export default function FeedbackPanel() {
     </div>
   );
 }
+
 
