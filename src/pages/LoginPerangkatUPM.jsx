@@ -31,7 +31,7 @@ export default function LoginPerangkatUPM() {
       localStorage.setItem("perangkatUPMToken", data.token);
 
       alert(`Login berhasil! Selamat datang, ${data.user.nama || data.user.jabatan}`);
-      window.location.href = "/album"; // redirect ke halaman album
+      window.location.href = "/"; // redirect ke halaman album
     } catch (err) {
       setError(err.message);
     } finally {
@@ -85,3 +85,4 @@ export default function LoginPerangkatUPM() {
     </div>
   );
 }
+
