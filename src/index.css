@@ -107,20 +107,18 @@ body {
   transition: ease 0.3s;
 }
 
-/* Burger container, hidden default */
+
 .burger {
   display: none;
-  z-index: 10000; /* di atas nav-links */
+  z-index: 10000; 
 }
-
-/* Responsive: tampilkan burger dan ubah nav-links jadi dropdown */
 @media (max-width: 520px) {
   .nav {
     padding: 10px 14px;
   }
   .nav-links {
     position: fixed;
-    top: 70px; /* tinggi navbar */
+    top: 70px; 
     left: 0;
     width: 100%;
     background: var(--paper);
@@ -134,7 +132,7 @@ body {
     padding-left: 0;
   }
   .nav-links.active {
-    max-height: 300px; /* sesuaikan jika perlu */
+    max-height: 300px; 
   }
   .nav-links a {
     padding: 14px 20px;
@@ -144,7 +142,7 @@ body {
     display: block;
   }
   .nav-links {
-    display: flex; /* pastikan tetap flex */
+    display: flex; 
   }
 }
 
@@ -264,6 +262,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+  margin-top: 12px;
 }
 .profile-card {
   display: flex;
@@ -323,20 +322,90 @@ label {
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   font-size: 13px;
   padding: 20px 14px;
-  background-color: #171717; /* pastikan background agar teks jelas */
+  background-color: #171717;
   border-top: 1px solid var(--glass-border);
   color: var(--muted);
   text-align: center;
   z-index: 1000;
+  margin-top: auto;
 }
 
-/* -------- MEDIA QUERIES -------- */
+.about-card {
+  max-width: 600px;
+  margin: 32px auto 0 auto;
+  padding: 32px 24px;
+}
+
+.about-title {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.about-desc {
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.about-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.about-list-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.about-dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.about-section-title {
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 6px;
+}
+
+.about-ul {
+  margin-top: 8px;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+@media (max-width: 520px) {
+  .about-card {
+    padding: 16px 6px;
+    max-width: 98vw;
+  }
+  .about-title {
+    font-size: 20px;
+  }
+  .about-desc {
+    font-size: 15px;
+  }
+  .about-list {
+    gap: 12px;
+  }
+  .about-ul {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 900px) {
   .home-grid {
     grid-template-columns: 1fr;
@@ -355,16 +424,21 @@ label {
     gap: 12px;
   }
   .form-row {
-    grid-template-columns: 1fr; /* stack form inputs vertically */
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 520px) {
+  .profile-card{
+    margin: 10px;
+    padding:50px 20px 50px 20px;
+  }
+  
   .profile-grid {
     grid-template-columns: 1fr;
   }
   .album-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .nav {
     justify-content: center;
