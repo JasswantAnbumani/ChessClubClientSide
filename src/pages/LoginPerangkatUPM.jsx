@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const API_URL = "https://chessclubserverside.onrender.com"; // Ganti sesuai URL backend Render mu
+
 export default function LoginPerangkatUPM() {
   const [form, setForm] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
@@ -15,7 +17,7 @@ export default function LoginPerangkatUPM() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/perangkatupm/login", {
+      const res = await fetch(`${API_URL}/api/perangkatupm/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form)
@@ -28,8 +30,8 @@ export default function LoginPerangkatUPM() {
       localStorage.setItem("perangkatUPMUser", JSON.stringify(data.user));
       localStorage.setItem("perangkatUPMToken", data.token);
 
-      alert(`Login berhasil! Selamat datang, ${data.user.nama}`);
-      window.location.href = "/"; // langsung ke halaman album
+      alert(`Login berhasil! Selamat datang, ${data.user.nama || data.user.jabatan}`);
+      window.location.href = "/album"; // redirect ke halaman album
     } catch (err) {
       setError(err.message);
     } finally {
@@ -83,4 +85,3 @@ export default function LoginPerangkatUPM() {
     </div>
   );
 }
-
