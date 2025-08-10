@@ -4,6 +4,7 @@ import FeedbackPanel from "../components/FeedbackPanel";
 import AnimatedButton from "../components/AnimatedButton";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import "../index.css"
 
 const announcements = [
   {

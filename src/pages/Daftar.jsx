@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import "../index.css"
 
 export default function Daftar() {
   const [form, setForm] = useState({

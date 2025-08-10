@@ -1,20 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import "../index.css"
 
 export default function About(){
   return (
     <div className="container">
-      <motion.div className="card" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}}>
-        <h2>Tentang UPM Chess Club</h2>
-        <p style={{color:'var(--muted)', marginTop:8}}>
+      <motion.div className="card about-card" initial={{opacity:0,y:8}} animate={{opacity:1,y:0}}>
+        <h2 className="about-title">Tentang UPM Chess Club</h2>
+        <p className="about-desc">
           Menjadi wadah pembinaan, pengembangan, dan prestasi catur yang unggul, berintegritas, serta berkontribusi positif bagi kemajuan mahasiswa Universitas Satya Terra Bhinneka di tingkat lokal, nasional, dan internasional.
         </p>
 
-        <div style={{marginTop:12, display:'grid', gap:8}}>
-          <div style={{display:'flex', gap:12, alignItems:'center'}}>
-            <div style={{width:10,height:10,background:'#fff',borderRadius:4}}></div>
-            <div style={{color:'var(--muted)'}}>Misi 
-                  <ul style={{ marginTop: 8, paddingLeft: 20 }}>
+        <div className="about-list">
+          <div className="about-list-item">
+            <div className="about-dot"></div>
+            <div>
+              <span className="about-section-title">Misi</span>
+              <ul className="about-ul">
                 <li>
                   Mengembangkan kemampuan dan keterampilan catur mahasiswa melalui pelatihan rutin,
                   pembinaan terarah, dan kegiatan kompetitif.
@@ -37,15 +39,14 @@ export default function About(){
               </ul>
             </div>
           </div>
-          <div style={{display:'flex', gap:12, alignItems:'center'}}>
-            <div style={{width:10,height:10,background:'#fff',borderRadius:4}}></div>
-            <div style={{color:'var(--muted)'}}>Visi: Menjadi klub catur kampus yang aktif dan berprestasi.</div>
+          <div className="about-list-item">
+            <div className="about-dot"></div>
+            <div>
+              <span className="about-section-title">Visi:</span> Menjadi klub catur kampus yang aktif dan berprestasi.
+            </div>
           </div>
         </div>
       </motion.div>
     </div>
   )
 }
-
-
-
