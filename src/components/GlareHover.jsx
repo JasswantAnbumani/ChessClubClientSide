@@ -1,4 +1,4 @@
-
+import React, { useState, useEffect } from "react";
 
 const GlareHover = ({
   width = "200px",
@@ -16,6 +16,20 @@ const GlareHover = ({
   className = "",
   style = {},
 }) => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      const w = window.innerWidth;
+      // Atur breakpoint 768px untuk mobile/tablet
+      setIsMobileOrTablet(w <= 768);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
   const hex = glareColor.replace("#", "");
   let rgba = glareColor;
   if (/^[0-9A-Fa-f]{6}$/.test(hex)) {
@@ -42,9 +56,12 @@ const GlareHover = ({
     "--gh-border": borderColor,
   };
 
+  // Jika device mobile/tablet, paksa playOnce true
+  const finalPlayOnce = isMobileOrTablet ? true : playOnce;
+
   return (
     <div
-      className={`glare-hover ${playOnce ? 'glare-hover--play-once' : ''} ${className}`}
+      className={`glare-hover ${finalPlayOnce ? "glare-hover--play-once" : ""} ${className}`}
       style={{ ...vars, ...style }}
     >
       {children}
