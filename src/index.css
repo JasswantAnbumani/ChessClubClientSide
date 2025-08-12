@@ -129,12 +129,13 @@ body {
 @media (max-width: 520px) {
   .nav {
     padding: 10px 14px;
+    border-bottom: 1px solid #111111;
   }
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 68px;
     left: 0;
-    width: 100%;
+    width: auto;
     background: var(--paper);
     flex-direction: column;
     gap: 0;
@@ -147,9 +148,13 @@ body {
   }
   .nav-links.active {
     max-height: 300px;
+    max-width: 150px;
     padding-bottom: 5px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
   .nav-links a {
+    
     padding: 9px 20px;
     border-bottom: 1px solid var(--glass-border);
   }
