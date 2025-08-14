@@ -11,7 +11,7 @@ export default function Home() {
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
-    fetch("https://localhost:5000/api/pengumuman") // ganti URL API sesuai backend-mu
+    fetch("http://localhost:5000/api/pengumuman") // ganti URL API sesuai backend-mu
       .then((res) => res.json())
       .then((data) => {
         // Ubah format data API agar cocok dengan AnnouncementCard
@@ -105,3 +105,4 @@ export default function Home() {
     </motion.div>
   );
 }
+
