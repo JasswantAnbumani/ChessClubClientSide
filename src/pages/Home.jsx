@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AnnouncementCard from "../components/AnnouncementCard";
 import FeedbackPanel from "../components/FeedbackPanel";
 import AnimatedButton from "../components/AnimatedButton";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import "../index.css"
-
-const announcements = [
-  {
-    title: "Latihan Mingguan",
-    date: "Setiap Hari Jumat",
-    content: "Latihan Di Perpustakaan Pada Pukul 12.00 WIB",
-  },
-];
+import "../index.css";
 
 export default function Home() {
   const nav = useNavigate();
+  const [announcements, setAnnouncements] = useState([]);
+
+  useEffect(() => {
+    fetch("https://localhost:5000/api/pengumuman") // ganti URL API sesuai backend-mu
+      .then((res) => res.json())
+      .then((data) => {
+        // Ubah format data API agar cocok dengan AnnouncementCard
+        const formatted = data.map((item) => ({
+          title: item.judul,
+          date: item.tanggal
+            ? new Date(item.tanggal).toLocaleDateString("id-ID", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            : "Tanggal tidak tersedia",
+          content: item.isi,
+        }));
+        setAnnouncements(formatted);
+      })
+      .catch((err) => console.error("Gagal memuat pengumuman:", err));
+  }, []);
 
   return (
     <motion.div
@@ -50,9 +64,13 @@ export default function Home() {
             <div className="card">
               <h3 style={{ marginBottom: 8 }}>Pengumuman</h3>
               <div className="ann-list">
-                {announcements.map((a, i) => (
-                  <AnnouncementCard key={i} item={a} />
-                ))}
+                {announcements.length > 0 ? (
+                  announcements.map((a, i) => (
+                    <AnnouncementCard key={i} item={a} />
+                  ))
+                ) : (
+                  <p>Belum ada pengumuman</p>
+                )}
               </div>
             </div>
           </div>
