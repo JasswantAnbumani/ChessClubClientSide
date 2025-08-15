@@ -44,6 +44,7 @@ export default function Navbar() {
     <NavLink to="/profil" onClick={handleLinkClick}>Profil</NavLink>
     <NavLink to="/about" onClick={handleLinkClick}>Tentang Kami</NavLink>
     <NavLink to="/daftar" onClick={handleLinkClick}>Daftar</NavLink>
+    <NavLink to="chatbotcc" onClick={handleLinkClick}>Chatbot</NavLink>
   </nav>
 </motion.header>
   )
