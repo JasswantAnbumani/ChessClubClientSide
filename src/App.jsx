@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Daftar from "./pages/Daftar";
 import NotFound from "./pages/NotFound";
 import LoginPerangkatUPM from "./pages/LoginPerangkatUPM";
+import ChatbotCC from "./pages/ChatbotCC";
 export default function App() {
   return (
     <div className="app">
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/daftar" element={<Daftar />} />
           <Route path="/login" element={<LoginPerangkatUPM />} />
+          <Route path="/chatbotcc" element={<ChatbotCC />} />
           <Route path="*" element={<NotFound />} />
 
         </Routes>
